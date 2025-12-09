@@ -10,8 +10,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("core.urls")),
     path("openapi/", SpectacularAPIView.as_view(), name="openapi-schema"),
-    path("docs/", SpectacularSwaggerView.as_view(), name="swagger-ui"),
-
+    path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     # Swagger
     path("openapi/", get_schema_view(
         title="PATRI-TECH API",
